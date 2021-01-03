@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Questions.css";
 import { useAuth } from "./contexts/AuthContext";
 import { db } from "./Firebase";
+import { Link } from "react-router-dom";
 
 export default function Questions(props) {
 
@@ -10,7 +11,6 @@ export default function Questions(props) {
     const [second, setSecond] = useState("");
     const [second_id, setSecondId] = useState("");
     const {currentUser} = useAuth();
-
 
     const onChange = (event) => {
         if (first_id === "question5") {
@@ -69,30 +69,23 @@ export default function Questions(props) {
 
                 // change button color
                 document.getElementById(event.target.id).style.backgroundColor = "rgb(136, 0, 122)";
-
-
                 document.getElementById(event.target.id).style.color = "white";
             } else if (second === "") {
-
                 setSecond(event.target.innerText);
                 setSecondId(event.target.id);
-
                 document.getElementById(event.target.id).style.backgroundColor = "rgb(136, 0, 122)";
                 document.getElementById(event.target.id).style.color = "white";
             }
         } else {
             // else the button is purple and it's already been selected
             if (first_id === event.target.id) {
-                    setFirst("");
-                    setFirstId("");
-
+                setFirst("");
+                setFirstId("");
                 document.getElementById(event.target.id).style.backgroundColor = "rgb(243, 243, 243)";
                 document.getElementById(event.target.id).style.color = "black";
             } else if (second_id === event.target.id) {
-  
-                    setSecond("");
-                    setSecondId("");
-
+                setSecond("");
+                setSecondId("");
                 document.getElementById(event.target.id).style.backgroundColor = "rgb(243, 243, 243)";
                 document.getElementById(event.target.id).style.color = "black";
             }
@@ -111,7 +104,9 @@ export default function Questions(props) {
                 Or make your own question... 
                 <input id="question5" className="question-text" type="text" style={ { backgroundColor: "#f3f3f3" } } onChange={ onChange } />
             </label>
-            <input className="send-button" type="submit" value="Send" />
+            <Link to="/2t1l">
+                <input className="send-button" type="submit" value="Send" />
+            </Link>
         </form>
         </div>
     );
