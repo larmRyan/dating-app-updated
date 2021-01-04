@@ -65,6 +65,7 @@ export default function App() {
 
             <Route path="/chat">
               <h1 className="title"> CHAT </h1>
+              <Footer chat="chat" home="home" />
               <Chats />
             </Route>
 
