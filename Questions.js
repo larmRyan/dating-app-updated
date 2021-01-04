@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function Questions(props) {
 
     const [first, setFirst] = useState("");
-    const [firsr_id, setFirstId] = useState("");
+    const [first_id, setFirstId] = useState("");
     const [second, setSecond] = useState("");
     const [second_id, setSecondId] = useState("");
     const {currentUser} = useAuth();
@@ -46,7 +46,7 @@ export default function Questions(props) {
           console.log("Choose two questions");
 
         } else {
-          db.collection("collections")
+          db.collection("users")
             .doc(currentUser.uid)
             .update({
               questions: {
