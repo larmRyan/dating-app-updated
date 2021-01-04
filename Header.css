@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f9f9f9;
+  position: fixed;
+  background-color: white;
+  top:0px;
+  right:0px;
+  left:0px;
+}
+
+.header__icon {
+  padding: 15px;
+  background-color: white;
+}
+
+.titleHeader {
+  font-size: 20px;
+  padding: 0px;
+  background-color: white;
+}

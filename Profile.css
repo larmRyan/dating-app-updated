@@ -1,0 +1,31 @@
+.profile {
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  height: 70px;
+  border-bottom: 1px solid white;
+}
+
+.profile__details {
+  justify-content: space-between;
+  padding: 30px;
+  height: 70px;
+  border-bottom: 1px solid white;
+}
+
+.profile__subtitle {
+  justify-content: space-between;
+  padding: 5px;
+  font-size: 15px;
+  margin-top: 30px;
+  color: purple;
+}
+
+.profile__content {
+  font-size: 24px;
+}
+
+.profile__image {
+  position: fixed; 
+  display: inline;
+}
