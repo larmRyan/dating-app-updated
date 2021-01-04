@@ -70,10 +70,10 @@ export default function App() {
 
             <Route path="/profile">
               <h1 className="title"> PROFILE </h1>
-              <Footer />
+              <Footer chat="chat" home="home" />
               <Profile />
             </Route>
-            
+
             <Route path="/reveal">
               <Reveal />
             </Route>
