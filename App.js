@@ -21,6 +21,10 @@ import Questions from "./Questions";
 import TwoTruthsOneLie from "./TwoTruthsOneLie";
 import Home2 from "./Home2";
 import Chats2 from "./Chats2";
+import Bio from "./Onboarding/Bio";
+import Bio2 from "./Onboarding/Bio2";
+import Bio3 from "./Onboarding/Bio3";
+import DealBreaker from "./Onboarding/DealBreakers";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -97,6 +101,18 @@ export default function App() {
 
             <PrivateRoute path="/home">
               <Home />
+            </PrivateRoute>
+            <PrivateRoute path="/bioadd">
+              <Bio />
+            </PrivateRoute>
+            <PrivateRoute path="/bioadd2">
+              <Bio2 />
+            </PrivateRoute>
+            <PrivateRoute path="/bioadd3">
+              <Bio3 />
+            </PrivateRoute>
+            <PrivateRoute path="/dealb">
+              <DealBreaker />
             </PrivateRoute>
           </Switch>
         </AuthProvider>
