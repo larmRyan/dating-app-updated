@@ -1,13 +1,14 @@
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import React,{ Component } from "react";
 import "./twoTOneL.css";
 import { useState, useEffect } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import { db } from "./Firebase";
 import firebase from "firebase";
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 import Button from "./Button";
 import RadioButtonsGroup from "./questionBubble";
+import { Link } from "react-router-dom";
+
 
 export default function TwoTruths() {
   const color = "red";
@@ -17,20 +18,16 @@ export default function TwoTruths() {
   const [name, setUsername] = useState("");
   const [messages, setMessages] = useState([
     {
-      message: "GAME STARTING..."
+      message: "GAME STARTING...",
+      name:"o"
     }
   ]);
-  const [view, setView] = React.useState("list");
-
-  const updateChats = () => {
-    return <Redirect to="/home2" />;
-  };
+  const [view, setView] = React.useState('list');
 
   const handleChange = (event, nextView) => {
     setView(nextView);
   };
 
-  //updates the messages using the databse in ascending order by time
   useEffect(() => {
     db.collection("twoTruths")
       .orderBy("timestamp", "asc")
@@ -55,12 +52,9 @@ export default function TwoTruths() {
 
     setInput("");
   };
-
-  const chColor = (e) => {
-    e.preventDefault();
-  };
-
+    
   return (
+    
     <div>
       <div className="twoTruths">
         {messages.map((message) =>
@@ -73,49 +67,40 @@ export default function TwoTruths() {
               />
               <button className="twoTruths__text">{message.message}</button>
             </div>
-          ) : message.name === "o" ? (
-            <div className="twoTruths__message">
-              <button className="twoTruths__remind">{message.message}</button>
+          ) : ( message.name === "o" ? (
+           <div className="twoTruths__message">
+              <button className="twoTruths__remind" >{message.message}</button>
             </div>
-          ) : message.name === "oo" ? (
-            <div className="twoTruths__message">
-              <div className="twoTruths__textUser">
-                <RadioButtonsGroup
-                  firstQ="hi"
-                  secondQ="hey"
-                  label="Anon Panda will choose:"
-                />
-              </div>
+         ) : ( message.name === "oo" ? (
+          <div className="twoTruths__message">
+            <div className="questions__textUser">
+              <RadioButtonsGroup firstQ={message.message1} secondQ={message.message2} label="🐼 will choose one and answer:"/>
             </div>
-          ) : message.name === "ooo" ? (
-            <div className="twoTruths__message">
-              <div className="twoTruths__text">
-                <RadioButtonsGroup
-                  firstQ="hi"
-                  secondQ="hey"
-                  label="Choose one from below:"
-                />
-              </div>
+          </div>
+        ) : ( message.name === "ooo" ? (
+          <div className="twoTruths__message">
+            <div className="questions__text">
+              <RadioButtonsGroup firstQ="What's your ideal date?" secondQ="Biggest pet peeve?" label="🐼 sent these questions! Choose one & answer:"/>
             </div>
-          ) : message.name === "oooo" ? (
+           </div>
+        ) : ( message.name === "oooo" ? (
+          <div className="twoTruths__message">
+            <Link to="/questions">
+              <button className="twoTruths__next" >Click here for the next game!</button>
+            </Link>
+           </div>
+        ) : ( message.name === "ooooo" ? (
+          <div className="twoTruths__message">
+            <Link to="/reveal">
+              <button className="twoTruths__next" >CONGRATS! You finished the icebreaker. Click here to view 🐼's profile </button>
+            </Link>
+           </div>
+        ) : (
             <div className="twoTruths__message">
-              <button className="twoTruths__next">
-                Click here for the next game!
-              </button>
+              <button className="twoTruths__textUser" >{message.message}</button>
             </div>
-          ) : message.name === "ooooo" ? (
-            <div className="twoTruths__message">
-              <button className="twoTruths__next" onClick={updateChats}>
-                CONGRATS! you finished the icebreaker. click here to view
-                profile{" "}
-              </button>
-            </div>
-          ) : (
-            <div className="twoTruths__message">
-              <button className="twoTruths__textUser">{message.message}</button>
-            </div>
-          )
-        )}
+         ))
+       )))))}
       </div>
 
       <form className="twoTruths__input">
