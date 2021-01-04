@@ -25,7 +25,7 @@ import Bio from "./Onboarding/Bio";
 import Bio2 from "./Onboarding/Bio2";
 import Bio3 from "./Onboarding/Bio3";
 import DealBreaker from "./Onboarding/DealBreakers";
-
+import Reveal from "./Reveal";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function App() {
@@ -72,6 +72,10 @@ export default function App() {
               <h1 className="title"> PROFILE </h1>
               <Footer />
               <Profile />
+            </Route>
+            
+            <Route path="/reveal">
+              <Reveal />
             </Route>
 
             <Route path="/2T1L">
