@@ -8,7 +8,8 @@ export default function Anonppl() {
       {/* <Link to="/2t1l">
          <button className="anonButton"> ANON PANDA </button> 
       </Link> */}
-      <button className="anonButton"> ANON MOUSE </button>
+      <button className="anonButton"> 🐭 ANON MOUSE </button>
     </div>
   );
 }
+
