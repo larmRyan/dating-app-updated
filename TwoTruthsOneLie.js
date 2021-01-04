@@ -3,6 +3,8 @@ import "./TwoTruthsOneLie.css";
 import { useAuth } from "./contexts/AuthContext";
 import { db } from "./Firebase";
 import { useHistory } from "react-router-dom";
+import firebase from "firebase";
+import { Link } from "react-router-dom";
 
 // remove the link to questions
 export default function TwoTruthsOneLie(props) {
@@ -41,8 +43,23 @@ export default function TwoTruthsOneLie(props) {
           }
         })
         .then(function () {
-          history.push("questions");
+          history.push("home");
         });
+        db.collection("twoTruths").add({
+          message: truth1,
+          name: "",
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+         });
+         db.collection("twoTruths").add({
+          message: truth2,
+          name: "",
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+         });
+         db.collection("twoTruths").add({
+          message: lie,
+          name: "",
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+         });
     } catch (error) {
       console.error(error.name);
       console.error(error.message);
