@@ -17,19 +17,25 @@ export default function TwoTruthsOneLie(props) {
     setTruth2(event.target.truth2.value);
     setLie(event.target.lie.value);
 
-    try {
-      db.collection("users")
-        .doc(currentUser.uid)
-        .update({
-          ttol: {
-            truth1: truth1,
-            truth2: truth2,
-            lie: lie
-          }
-        });
-    } catch (error) {
-      console.error(error.name);
-      console.error(error.message);
+    if (truth1 !== "" && truth2 !== "" && lie !== "") {
+      try {
+        db.collection("users")
+          .doc(currentUser.uid)
+          .update({
+            ttol: {
+              truth1: truth1,
+              truth2: truth2,
+              lie: lie
+            }
+          });
+
+        return <redirect from="/ttol" to="questions" />;
+      } catch (error) {
+        console.error(error.name);
+        console.error(error.message);
+      }
+    } else {
+      console.log("Some/all of the forms weren't filled out");
     }
   };
 
@@ -53,9 +59,7 @@ export default function TwoTruthsOneLie(props) {
           </li>
 
           <li className="form-row">
-            <Link to="/questions">
-              <input type="submit" value="Send" />
-            </Link>
+            <input type="submit" value="Send" />
           </li>
         </ul>
       </form>
