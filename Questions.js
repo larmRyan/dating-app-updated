@@ -3,6 +3,8 @@ import "./Questions.css";
 import { useAuth } from "./contexts/AuthContext";
 import { db } from "./Firebase";
 import { useHistory } from "react-router-dom";
+import firebase from "firebase";
+
 
 export default function Questions(props) {
   const [first, setFirst] = useState("");
@@ -43,6 +45,12 @@ export default function Questions(props) {
       if (first === "" || second === "") {
         console.log("Choose two questions");
       } else {
+        db.collection("twoTruths").add({
+          message1: first,
+          message2: second,
+          name: "oo",
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
         db.collection("users")
           .doc(currentUser.email)
           .update({
@@ -50,9 +58,9 @@ export default function Questions(props) {
               first: first,
               second: second
             }
+          }).then(function () {
+            history.push("2T1L");
           });
-      }
-      history.push("2t1l");
     } catch (error) {
       // incase the user isn't logged in or the something is wrong with the db
       console.error(error.name);
