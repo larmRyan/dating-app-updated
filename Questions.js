@@ -60,7 +60,7 @@ export default function Questions(props) {
             }
           }).then(function () {
             history.push("2T1L");
-          });
+          });}
     } catch (error) {
       // incase the user isn't logged in or the something is wrong with the db
       console.error(error.name);
