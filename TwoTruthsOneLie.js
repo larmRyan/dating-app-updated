@@ -12,11 +12,17 @@ export default function TwoTruthsOneLie(props) {
   const { currentUser } = useAuth();
   const history = useHistory();
 
+  const handleChange = (event) => {
+    setTruth1(event.target.value);
+    setTruth2(event.target.value);
+    setLie(event.target.value);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setTruth1(event.target.truth1.value);
-    setTruth2(event.target.truth2.value);
-    setLie(event.target.lie.value);
+    // setTruth1(event.target.truth1.value);
+    // setTruth2(event.target.truth2.value);
+    // setLie(event.target.lie.value);
 
     try {
       db.collection("users")
@@ -27,8 +33,10 @@ export default function TwoTruthsOneLie(props) {
             truth2: truth2,
             lie: lie
           }
+        })
+        .then(function () {
+          history.push("questions");
         });
-      history.push("questions");
     } catch (error) {
       console.error(error.name);
       console.error(error.message);
@@ -40,18 +48,36 @@ export default function TwoTruthsOneLie(props) {
       <form className="TwoTruthsOneLie" onSubmit={handleSubmit}>
         <ul>
           <li className="form-row truth">
-            <input id="truth1" type="text" name="truth1" required />
+            <input
+              id="truth1"
+              type="text"
+              name="truth1"
+              onChange={handleChange}
+              required
+            />
             <label htmlFor="truth1">First Truth</label>
           </li>
 
           <li className="form-row truth">
-            <input id="truth2" type="text" name="truth2" required />
+            <input
+              id="truth2"
+              type="text"
+              name="truth2"
+              onChange={handleChange}
+              required
+            />
             <label htmlFor="truth2">Second Truth</label>
           </li>
 
           <li className="form-row lie">
             <label htmlFor="lie">Lie</label>
-            <input id="lie" type="text" name="lie" required />
+            <input
+              id="lie"
+              type="text"
+              name="lie"
+              onChange={handleChange}
+              required
+            />
           </li>
 
           <li className="form-row">
