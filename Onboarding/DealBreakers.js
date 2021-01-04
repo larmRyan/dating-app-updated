@@ -103,7 +103,7 @@ export default function Bio2() {
       .doc(email)
       .update(data)
       .then(() => {
-        // history.push("bioadd3");
+        history.push("ttol");
       })
       .catch((error) => {
         setError("Failed to update bio");
