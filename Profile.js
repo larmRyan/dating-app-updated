@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Profile.css";
 import IconButton from "@material-ui/core/IconButton";
 import "./Onboarding/BioInfo";
-import Logout from "./Logout";
+//import Logout from "./Logout";
 import Avatar from "@material-ui/core/Avatar";
 import { useAuth } from "./contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";

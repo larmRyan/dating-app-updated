@@ -5,7 +5,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { db } from "./Firebase";
 import firebase from "firebase";
 import ReactDOM from 'react-dom';
-import Button from "./Button";
+//import Button from "./Button";
 import RadioButtonsGroup from "./questionBubble";
 import { Link } from "react-router-dom";
 
