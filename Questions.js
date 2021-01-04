@@ -37,9 +37,6 @@ export default function Questions(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.clear();
-
-    console.log();
 
     try {
       if (first === "" || second === "") {
