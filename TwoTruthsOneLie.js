@@ -12,9 +12,15 @@ export default function TwoTruthsOneLie(props) {
   const { currentUser } = useAuth();
   const history = useHistory();
 
-  const handleChange = (event) => {
+  const handleChangeTruth1 = (event) => {
     setTruth1(event.target.value);
+  };
+
+  const handleChangeTruth2 = (event) => {
     setTruth2(event.target.value);
+  };
+
+  const handleChangeLie = (event) => {
     setLie(event.target.value);
   };
 
@@ -52,7 +58,7 @@ export default function TwoTruthsOneLie(props) {
               id="truth1"
               type="text"
               name="truth1"
-              onChange={handleChange}
+              onChange={handleChangeTruth1}
               required
             />
             <label htmlFor="truth1">First Truth</label>
@@ -63,7 +69,7 @@ export default function TwoTruthsOneLie(props) {
               id="truth2"
               type="text"
               name="truth2"
-              onChange={handleChange}
+              onChange={handleChangeTruth2}
               required
             />
             <label htmlFor="truth2">Second Truth</label>
@@ -75,7 +81,7 @@ export default function TwoTruthsOneLie(props) {
               id="lie"
               type="text"
               name="lie"
-              onChange={handleChange}
+              onChange={handleChangeLie}
               required
             />
           </li>
