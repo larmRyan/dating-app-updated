@@ -7,7 +7,7 @@ import Home from "./Home";
 import PrivateRoute from "./PrivateRoute";
 import { AuthProvider } from "./contexts/AuthContext";
 import Log from "./Onboarding/Log";
-import Logout from "./Logout";
+// import Logout from "./Logout";
 import CreateAlgo from "./Onboarding/CreateAlgo";
 import Welcome from "./Onboarding/Welcome";
 import LoginControl from "./Onboarding/LoginControl";
@@ -73,7 +73,7 @@ export default function App() {
               <Footer />
               <Profile />
             </Route>
-            
+
             <Route path="/reveal">
               <Reveal />
             </Route>
