@@ -16,6 +16,7 @@ export default function Profile() {
   const [name, setName] = useState("");
   const [edu, setEdu] = useState("");
   const [hobbies, setHobbies] = useState("");
+  const [pic, setPic] = useState("");
 
   const history = useHistory();
   async function handleLogout() {
@@ -36,6 +37,7 @@ export default function Profile() {
       setName(doc.data().name);
       setEdu(doc.data().education);
       setHobbies(doc.data().hobbies);
+      setPic(doc.data().pic1);
     } else {
       console.log("No doc");
     }
@@ -43,10 +45,7 @@ export default function Profile() {
 
   return (
     <div className="profile">
-      <Avatar
-        className="profile__image"
-        src="https://st2.depositphotos.com/2783505/8295/i/950/depositphotos_82958312-stock-photo-portrait-of-a-guy-with.jpg"
-      />
+      <Avatar className="profile__image" src={pic} />
       <div className="profile__details">
         <p className="profile__subtitle">NAME</p>
         <h2 className="profile__content">{name}</h2>
