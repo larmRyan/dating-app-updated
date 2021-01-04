@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Questions.css";
 import { useAuth } from "./contexts/AuthContext";
 import { db } from "./Firebase";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Questions(props) {
   const [first, setFirst] = useState("");
@@ -10,6 +10,7 @@ export default function Questions(props) {
   const [second, setSecond] = useState("");
   const [second_id, setSecondId] = useState("");
   const { currentUser } = useAuth();
+  const history = useHistory();
 
   const onChange = (event) => {
     if (first_id === "question5") {
@@ -43,7 +44,7 @@ export default function Questions(props) {
         console.log("Choose two questions");
       } else {
         db.collection("users")
-          .doc(currentUser.uid)
+          .doc(currentUser.email)
           .update({
             questions: {
               first: first,
@@ -51,6 +52,7 @@ export default function Questions(props) {
             }
           });
       }
+      history.push("2t1l");
     } catch (error) {
       // incase the user isn't logged in or the something is wrong with the db
       console.error(error.name);
@@ -151,9 +153,7 @@ export default function Questions(props) {
             onChange={onChange}
           />
         </label>
-        <Link to="/2t1l">
-          <input className="send-button" type="submit" value="Send" />
-        </Link>
+        <input className="send-button" type="submit" value="Send" />
       </form>
     </div>
   );
