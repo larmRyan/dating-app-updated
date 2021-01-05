@@ -20,14 +20,14 @@ export default function Login() {
       await login(emailRef.current.value, passwordRef.current.value);
 
       history.push("home");
-    } catch {
+    } catch (error) {
       setError("Failed to login");
     }
     setLoading(false);
   }
 
   return (
-    <>
+    <div>
       <h2 className="text-center mb-4">Log In</h2>
       {error && <Alert variant="danger">{error}</Alert>}
       <Form onSubmit={handleSubmit}>
@@ -46,6 +46,6 @@ export default function Login() {
       <div className="w-100 text-center mt-2">
         Don't have an account? <Link to="/signup">Sign Up</Link>
       </div>
-    </>
+    </div>
   );
 }

@@ -20,7 +20,7 @@ export default function Home2() {
     try {
       await logout();
       history.push("/login");
-    } catch {
+    } catch (error) {
       setError("Failed to logout");
     }
   }

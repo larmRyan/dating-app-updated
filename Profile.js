@@ -30,32 +30,35 @@ export default function Profile() {
     try {
       await logout();
       history.push("/login");
-    } catch {
+    } catch (error) {
       setError("Failed to logout");
     }
   }
 
-  var docRef = db.collection("users").doc(currentUser.email);
-
-  docRef.get().then(function (doc) {
-    if (doc.exists) {
-      setName(doc.data().name);
-      setEdu(doc.data().education);
-      setHobbies(doc.data().hobbies);
-      setPic(doc.data().pic1);
-      setMusic(doc.data().music);
-      setWork(doc.data().work);
-      setShower(doc.data().shower);
-      setAge(doc.data().age);
-      setCity(doc.data().city);
-      setState(doc.data().state);
-    } else {
-      console.log("No doc");
-    }
-  });
+  try {
+    var docRef = db.collection("users").doc(currentUser.email);
+    docRef.get().then(function (doc) {
+      if (doc.exists) {
+        setName(doc.data().name);
+        setEdu(doc.data().education);
+        setHobbies(doc.data().hobbies);
+        setPic(doc.data().pic1);
+        setMusic(doc.data().music);
+        setWork(doc.data().work);
+        setShower(doc.data().shower);
+        setAge(doc.data().age);
+        setCity(doc.data().city);
+        setState(doc.data().state);
+      } else {
+        console.log("No doc");
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
 
   return (
-    <>
+    <div>
       <div>
         <Avatar className="profile__image" src={pic} />
         <div>
@@ -132,6 +135,6 @@ export default function Profile() {
           </div>
         </Row>
       </div>
-    </>
+    </div>
   );
 }
