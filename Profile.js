@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import "./Profile.css";
+// import "./Profile.css";
 import IconButton from "@material-ui/core/IconButton";
-import "./Onboarding/BioInfo";
-//import Logout from "./Logout";
+
 import Avatar from "@material-ui/core/Avatar";
 import { useAuth } from "./contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import { Button, Alert } from "react-bootstrap";
+import { Row, Col, Button, Alert } from "react-bootstrap";
 // import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { db } from "./Firebase";
 
@@ -17,6 +16,12 @@ export default function Profile() {
   const [edu, setEdu] = useState("");
   const [hobbies, setHobbies] = useState("");
   const [pic, setPic] = useState("");
+  const [music, setMusic] = useState("");
+  const [work, setWork] = useState("");
+  const [shower, setShower] = useState("");
+  const [age, setAge] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
 
   const history = useHistory();
   async function handleLogout() {
@@ -38,27 +43,95 @@ export default function Profile() {
       setEdu(doc.data().education);
       setHobbies(doc.data().hobbies);
       setPic(doc.data().pic1);
+      setMusic(doc.data().music);
+      setWork(doc.data().work);
+      setShower(doc.data().shower);
+      setAge(doc.data().age);
+      setCity(doc.data().city);
+      setState(doc.data().state);
     } else {
       console.log("No doc");
     }
   });
 
   return (
-    <div className="profile">
-      <Avatar className="profile__image" src={pic} />
-      <div className="profile__details">
-        <p className="profile__subtitle">NAME</p>
-        <h2 className="profile__content">{name}</h2>
-        <p className="profile__subtitle">EDUCATION</p>
-        <h2 className="profile__content">{edu}</h2>
-        <p className="profile__subtitle">HOBBIES</p>
-        <h2 className="profile__content">{hobbies}</h2>
+    <>
+      <div>
+        <Avatar className="profile__image" src={pic} />
+        <div>
+          <Row inline>
+            <Col>
+              <p>NAME</p>
+            </Col>
+            <Col>
+              <p>{name}</p>
+            </Col>
+          </Row>
+          <Row inline>
+            <Col>
+              <p>EDUCATION</p>
+            </Col>
+            <Col>
+              <p>{edu}</p>
+            </Col>
+          </Row>
+          <Row inline>
+            <Col>
+              <p>HOBBIES</p>
+            </Col>
+            <Col>
+              <p>{hobbies}</p>
+            </Col>
+          </Row>
+          <Row inline>
+            <Col>
+              <p>MUSIC</p>
+            </Col>
+            <Col>
+              <p>{music}</p>
+            </Col>
+          </Row>
+          <Row inline>
+            <Col>
+              <p>WORK</p>
+            </Col>
+            <Col>
+              <p>{work}</p>
+            </Col>
+          </Row>
+          <Row inline>
+            <Col>
+              <p>SHOWER THOUGHTS</p>
+            </Col>
+            <Col>
+              <p>{shower}</p>
+            </Col>
+          </Row>
+          <Row inline>
+            <Col>
+              <p>CITY</p>
+            </Col>
+            <Col>
+              <p>{city}</p>
+            </Col>
+          </Row>
+          <Row inline>
+            <Col>
+              <p>STATE</p>
+            </Col>
+            <Col>
+              <p>{state}</p>
+            </Col>
+          </Row>
+        </div>
+        <Row>
+          <div className="w-100 text-center mt-2">
+            <Button variant="link" onClick={handleLogout}>
+              Log Out
+            </Button>
+          </div>
+        </Row>
       </div>
-      <div className="w-100 text-center mt-2">
-        <Button variant="link" onClick={handleLogout}>
-          Log Out
-        </Button>
-      </div>
-    </div>
+    </>
   );
 }
