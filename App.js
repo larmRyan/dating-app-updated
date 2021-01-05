@@ -59,7 +59,7 @@ export default function App() {
             </Route>
 
             <Route path="/chat/:person">
-              <Header backButton="chat2" />
+              <Header backButton="chat2" title="Chat"/>
               <Chatscreen />
             </Route>
 
@@ -80,7 +80,7 @@ export default function App() {
             </Route>
 
             <Route path="/2T1L">
-              <Header backButton="home" />
+              <Header backButton="home" title="Two Truths"/>
               <h1 className="title"> 2 truths 1 lie </h1>
               <TwoTruths />
             </Route>
