@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SimpleBottomNavigation({ backButton }) {
+export default function SimpleBottomNavigation({ backButton, title }) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -29,11 +29,12 @@ export default function SimpleBottomNavigation({ backButton }) {
       <Link to={`/${backButton}`}>
         <BottomNavigationAction className="header__icon" label="" icon={<ArrowLeftOutlinedIcon />} />
       </Link>
+      <h1 className="titleHeader" >{title}</h1>
     </BottomNavigation>
   );
 }
 
-function Header({ backButton }) {
+function Header({ backButton, title }) {
   return (
     <div className="header">
         <IconButton>
