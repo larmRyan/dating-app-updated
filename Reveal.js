@@ -62,13 +62,13 @@ export default function Reveal() {
         <p className="profile__subtitle">HOBBIES</p>
         <h2 className="profile__content">Skiing, hiking, eating</h2>
 
-        <Link to="/chat2">
+        <Link to="chat2">
           <Fab color="secondary" aria-label="add" className="fab__two">
             <FavoriteIcon onClick={handleSend} />
           </Fab>
         </Link>
 
-        <Link to="/home2">
+        <Link to="home2">
           <Fab color="primary" aria-label="edit" className="fab__one">
             <CloseIcon />
           </Fab>
