@@ -8,12 +8,14 @@
   top:0px;
   right:0px;
   left:0px;
+  box-shadow: 0px 4px 20px rgba(193, 193, 193, 0.25);
 }
 
 .header__icon {
   padding: 15px;
   background-color: white;
   margin-left: 10px;
+  margin-right: 300px;
 }
 
 .titleHeader {
