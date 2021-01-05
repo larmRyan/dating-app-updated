@@ -43,47 +43,43 @@ export default function Bio2() {
   }
 
   return (
-    <Card>
-      <Card.Body>
-        <div>
-          <h1 className="title"> YOUR BIO </h1>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="bioHobbies">
-              <Form.Label> What are your hobbies? </Form.Label>
-              <Form.Control type="text" ref={hobbiesRef} required />
-            </Form.Group>
-            <Form.Group id="bioMusic">
-              <Form.Label> Favorite music? </Form.Label>
-              <Form.Control type="text" ref={musicRef} required />
-            </Form.Group>
-            <Form.Group id="bioShower">
-              <Form.Label> Shower thoughts? </Form.Label>
-              <Form.Control type="text" ref={showerRef} required />
-            </Form.Group>
+    <div>
+      <h1 className="title"> YOUR BIO </h1>
+      {error && <Alert variant="danger">{error}</Alert>}
+      <Form onSubmit={handleSubmit}>
+        <Form.Group id="bioHobbies">
+          <Form.Label> What are your hobbies? </Form.Label>
+          <Form.Control type="text" ref={hobbiesRef} required />
+        </Form.Group>
+        <Form.Group id="bioMusic">
+          <Form.Label> Favorite music? </Form.Label>
+          <Form.Control type="text" ref={musicRef} required />
+        </Form.Group>
+        <Form.Group id="bioShower">
+          <Form.Label> Shower thoughts? </Form.Label>
+          <Form.Control type="text" ref={showerRef} required />
+        </Form.Group>
 
-            <Form.Group inline>
-              <Button
-                // disabled={loading}
-                className="btnn btnn-success"
-                href="\bioadd"
-              >
-                Previous
-              </Button>
-              <Button
-                // disabled={loading}
-                className="btnn btnn-success"
-                type="submit"
-              >
-                Next
-              </Button>
-            </Form.Group>
-          </Form>
-          {/* <div className="w-100 text-center mt-2">
+        <Form.Group inline>
+          <Button
+            // disabled={loading}
+            className="btnn btnn-success"
+            href="\bioadd"
+          >
+            Previous
+          </Button>
+          <Button
+            // disabled={loading}
+            className="btnn btnn-success"
+            type="submit"
+          >
+            Next
+          </Button>
+        </Form.Group>
+      </Form>
+      {/* <div className="w-100 text-center mt-2">
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </div> */}
-        </div>
-      </Card.Body>
-    </Card>
+    </div>
   );
 }

@@ -18,7 +18,7 @@ export default function Login() {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      
+
       history.push("home");
     } catch {
       setError("Failed to login");
@@ -27,31 +27,25 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <div className="main_box--main--signUp">
-        <h2 className="text-center mb-4">Log In</h2>
-        {error && <Alert variant="danger">{error}</Alert>}
-        <Form onSubmit={handleSubmit}>
-          <Form.Group id="signUpUsername">
-            <Form.Label> Email </Form.Label>
-            <Form.Control type="email" ref={emailRef} required />
-          </Form.Group>
-          <Form.Group id="signUpPassword1">
-            <Form.Label> Password </Form.Label>
-            <Form.Control type="password" ref={passwordRef} required />
-          </Form.Group>
-          <Button
-            disabled={loading}
-            className="btnn btnn-success"
-            type="submit"
-          >
-            Log In
-          </Button>
-        </Form>
-        <div className="w-100 text-center mt-2">
-          Don't have an account? <Link to="/signup">Sign Up</Link>
-        </div>
+    <>
+      <h2 className="text-center mb-4">Log In</h2>
+      {error && <Alert variant="danger">{error}</Alert>}
+      <Form onSubmit={handleSubmit}>
+        <Form.Group id="signUpUsername">
+          <Form.Label> Email </Form.Label>
+          <Form.Control type="email" ref={emailRef} required />
+        </Form.Group>
+        <Form.Group id="signUpPassword1">
+          <Form.Label> Password </Form.Label>
+          <Form.Control type="password" ref={passwordRef} required />
+        </Form.Group>
+        <Button disabled={loading} className="btnn btnn-success" type="submit">
+          Log In
+        </Button>
+      </Form>
+      <div className="w-100 text-center mt-2">
+        Don't have an account? <Link to="/signup">Sign Up</Link>
       </div>
-    </div>
+    </>
   );
 }

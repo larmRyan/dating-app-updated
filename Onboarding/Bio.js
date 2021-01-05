@@ -58,91 +58,75 @@ export default function Bio() {
   }
 
   return (
-    <Card>
-      <Card.Body>
-        <div>
-          <h1 className="title">YOUR BIO </h1>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="bioName">
-              <Form.Label> First Name </Form.Label>
-              <Form.Control type="text" ref={nameRef} required />
-            </Form.Group>
-            <Form inline>
-              <Form.Group id="bioGender">
-                <Form.Label> Gender </Form.Label>
-                <Form.Control
-                  as="select"
-                  mulitple
-                  ref={genderRef1}
-                  required
-                  custom
-                >
-                  <option>Cis</option>
-                  <option>Trans</option>
-                </Form.Control>
-                <Form.Control
-                  as="select"
-                  mulitple
-                  ref={genderRef2}
-                  required
-                  custom
-                >
-                  <option>Male</option>
-                  <option>Female</option>
-                  <option>Nonbinary</option>
-                </Form.Control>
-              </Form.Group>
-            </Form>
-            <Form.Group id="bioDOB">
-              <Form.Label> Birthday </Form.Label>
-              <DatePicker
-                selected={setDate}
-                onChange={(date) => setSelectedDate(date)}
-                maxDate={legal}
-                isClearable
-                showYearDropdown
-                scrollableMonthYearDropdown
-              />
-            </Form.Group>
-            <Form.Group id="bioEd">
-              <Form.Label> Education </Form.Label>
-              <Form.Control type="text" ref={edRef} required />
-            </Form.Group>
-            <Form.Group id="bioWork">
-              <Form.Label> Work </Form.Label>
-              <Form.Control type="text" ref={workRef} required />
-            </Form.Group>
-            <Form inline>
-              <Form.Group id="bioLoc">
-                <Form.Label> Lives in... </Form.Label>
-                <Form.Control
-                  type="text"
-                  ref={cityRef}
-                  placeholder="City"
-                  required
-                />
-                <Form.Control
-                  type="text"
-                  ref={stateRef}
-                  placeholder="State"
-                  required
-                />
-              </Form.Group>
-            </Form>
-            <Button
-              // disabled={loading}
-              className="btnn btnn-success"
-              type="submit"
-            >
-              Next
-            </Button>
-          </Form>
-          {/* <div className="w-100 text-center mt-2">
+    <div>
+      <h1 className="title">YOUR BIO </h1>
+      {error && <Alert variant="danger">{error}</Alert>}
+      <Form onSubmit={handleSubmit}>
+        <Form.Group id="bioName">
+          <Form.Label> First Name </Form.Label>
+          <Form.Control type="text" ref={nameRef} required />
+        </Form.Group>
+        <Form inline>
+          <Form.Group id="bioGender">
+            <Form.Label> Gender </Form.Label>
+            <Form.Control as="select" mulitple ref={genderRef1} required custom>
+              <option>Cis</option>
+              <option>Trans</option>
+            </Form.Control>
+            <Form.Control as="select" mulitple ref={genderRef2} required custom>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Nonbinary</option>
+            </Form.Control>
+          </Form.Group>
+        </Form>
+        <Form.Group id="bioDOB">
+          <Form.Label> Birthday </Form.Label>
+          <DatePicker
+            selected={setDate}
+            onChange={(date) => setSelectedDate(date)}
+            maxDate={legal}
+            isClearable
+            showYearDropdown
+            scrollableMonthYearDropdown
+          />
+        </Form.Group>
+        <Form.Group id="bioEd">
+          <Form.Label> Education </Form.Label>
+          <Form.Control type="text" ref={edRef} required />
+        </Form.Group>
+        <Form.Group id="bioWork">
+          <Form.Label> Work </Form.Label>
+          <Form.Control type="text" ref={workRef} required />
+        </Form.Group>
+        <Form inline>
+          <Form.Group id="bioLoc">
+            <Form.Label> Lives in... </Form.Label>
+            <Form.Control
+              type="text"
+              ref={cityRef}
+              placeholder="City"
+              required
+            />
+            <Form.Control
+              type="text"
+              ref={stateRef}
+              placeholder="State"
+              required
+            />
+          </Form.Group>
+        </Form>
+        <Button
+          // disabled={loading}
+          className="btnn btnn-success"
+          type="submit"
+        >
+          Next
+        </Button>
+      </Form>
+      {/* <div className="w-100 text-center mt-2">
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </div> */}
-        </div>
-      </Card.Body>
-    </Card>
+    </div>
   );
 }
