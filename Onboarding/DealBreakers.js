@@ -115,17 +115,19 @@ export default function Bio2() {
     <div>
       <h1 className="title"> YOUR PREFERENCES </h1>
       {error && <Alert variant="danger">{error}</Alert>}
-      <Form onSubmit={handleSubmit}>
+      <Form className="pref-form" onSubmit={handleSubmit}>
         <Form.Group as={Row} id="prefGender">
           <Col xs="3">
             <ToggleButtonGroup
               type="checkbox"
               value={isGen}
               onChange={handleGen}
+              className="gender-btn"
             >
               <ToggleButton value={true}>Gender</ToggleButton>
             </ToggleButtonGroup>
           </Col>
+          <Col xs="0"></Col>
           <Col xs="4">
             <Form.Control
               as="select"
@@ -152,8 +154,9 @@ export default function Bio2() {
             </Form.Control>
           </Col>
         </Form.Group>
+
         <Form.Group as={Row}>
-          <Col xs="3">
+          <Col xs="2">
             <ToggleButtonGroup
               type="checkbox"
               value={isMin}
@@ -162,7 +165,8 @@ export default function Bio2() {
               <ToggleButton value={true}>Min Age</ToggleButton>
             </ToggleButtonGroup>
           </Col>
-          <Col xs="6">
+          <Col xs="1"></Col>
+          <Col xs="4">
             <RangeSlider
               value={minAge}
               onChange={(e) => setMin(e.target.value)}
@@ -171,12 +175,13 @@ export default function Bio2() {
               disabled={!isMin}
             />
           </Col>
-          <Col xs="3">
+          <Col xs="4">
             <Form.Control value={minAge} />
           </Col>
         </Form.Group>
+
         <Form.Group as={Row}>
-          <Col xs="3">
+          <Col xs="2">
             <ToggleButtonGroup
               type="checkbox"
               value={isMax}
@@ -185,7 +190,8 @@ export default function Bio2() {
               <ToggleButton value={true}>Max Age</ToggleButton>
             </ToggleButtonGroup>
           </Col>
-          <Col xs="6">
+          <Col xs="1"></Col>
+          <Col xs="4">
             <RangeSlider
               value={maxAge}
               onChange={(e) => setMax(e.target.value)}
@@ -193,7 +199,7 @@ export default function Bio2() {
               disabled={!isMax}
             />
           </Col>
-          <Col xs="3">
+          <Col xs="4">
             <Form.Control value={maxAge} />
           </Col>
         </Form.Group>
@@ -207,14 +213,15 @@ export default function Bio2() {
               <ToggleButton value={true}>Distance</ToggleButton>
             </ToggleButtonGroup>
           </Col>
-          <Col xs="6">
+          {/* <Col xs="1"></Col> */}
+          <Col xs="4">
             <RangeSlider
               value={dist}
               onChange={(e) => setDist(e.target.value)}
               disabled={!isDist}
             />
           </Col>
-          <Col xs="3">
+          <Col xs="4">
             <Form.Control value={dist} /> miles away
           </Col>
         </Form.Group>
