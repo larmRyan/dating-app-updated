@@ -45,21 +45,21 @@ export default function TwoTruthsOneLie(props) {
         .then(function () {
           history.push("home");
         });
-        db.collection("twoTruths").add({
-          message: truth1,
-          name: "",
-          timestamp: firebase.firestore.FieldValue.serverTimestamp()
-         });
-         db.collection("twoTruths").add({
-          message: truth2,
-          name: "",
-          timestamp: firebase.firestore.FieldValue.serverTimestamp()
-         });
-         db.collection("twoTruths").add({
-          message: lie,
-          name: "",
-          timestamp: firebase.firestore.FieldValue.serverTimestamp()
-         });
+      db.collection("twoTruths").add({
+        message: truth1,
+        name: "",
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      db.collection("twoTruths").add({
+        message: truth2,
+        name: "",
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      db.collection("twoTruths").add({
+        message: lie,
+        name: "",
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
     } catch (error) {
       console.error(error.name);
       console.error(error.message);
@@ -68,28 +68,32 @@ export default function TwoTruthsOneLie(props) {
 
   return (
     <div>
+      <p>Two Truths, One Lie</p>
+      <p id="desc">Send them to your Masqed Matches</p>
       <form className="TwoTruthsOneLie" onSubmit={handleSubmit}>
         <ul>
           <li className="form-row truth">
+            <label htmlFor="truth1">First Truth</label>
             <input
               id="truth1"
               type="text"
               name="truth1"
               onChange={handleChangeTruth1}
+              className="text-input"
               required
             />
-            <label htmlFor="truth1">First Truth</label>
           </li>
 
           <li className="form-row truth">
+            <label htmlFor="truth2">Second Truth</label>
             <input
               id="truth2"
               type="text"
               name="truth2"
               onChange={handleChangeTruth2}
+              className="text-input"
               required
             />
-            <label htmlFor="truth2">Second Truth</label>
           </li>
 
           <li className="form-row lie">
@@ -99,14 +103,13 @@ export default function TwoTruthsOneLie(props) {
               type="text"
               name="lie"
               onChange={handleChangeLie}
+              className="text-input"
               required
             />
           </li>
 
-          <li className="form-row">
-            {/* <Link to="/questions"> */}
-            <input type="submit" value="Send" />
-            {/* </Link> */}
+          <li className="form-row send-button">
+            <input type="submit" value="Send" className="submit" />
           </li>
         </ul>
       </form>
