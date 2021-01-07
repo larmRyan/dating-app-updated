@@ -61,7 +61,7 @@ export default function Bio() {
     <div>
       <h1 className="title">YOUR BIO </h1>
       {error && <Alert variant="danger">{error}</Alert>}
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} className="form-container">
         <Form.Group id="bioName">
           <Form.Label> First Name </Form.Label>
           <Form.Control type="text" ref={nameRef} required />
