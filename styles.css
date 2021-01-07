@@ -29,3 +29,26 @@
 
   color: #000000;
 }
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.btnn {
+  margin: 10px;
+  width: 100px;
+}
+
+.gender-btn {
+  margin-top: -14px;
+}
