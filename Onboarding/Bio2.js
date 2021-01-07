@@ -60,7 +60,7 @@ export default function Bio2() {
           <Form.Control type="text" ref={showerRef} required />
         </Form.Group>
 
-        <Form.Group inline>
+        <Form.Group inline className="button-group">
           <Button
             // disabled={loading}
             className="btnn btnn-success"
