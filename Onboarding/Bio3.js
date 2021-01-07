@@ -167,7 +167,7 @@ export default function Bio3() {
 
   return (
     <Container>
-      <div>
+      <div className="profile-photos">
         <h1 className="title"> PROFILE PICTURES </h1>
         {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
